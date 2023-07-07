@@ -1,0 +1,56 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --time=52:00:00
+#SBATCH --mem=100G
+#SBATCH --output=TFmotifs_allCTs.out
+
+workingDir=/data/hodges_lab/Tim/finalAnalyses_HMRs/TFmotifs/
+HMRDir=/data/hodges_lab/Tim/finalAnalyses_HMRs/HMRs_goodGenes/HMRs/
+outDir=/data/hodges_lab/Tim/finalAnalyses_HMRs/TFmotifs/
+
+cd ${workingDir}
+
+# Adrenal
+for partition in unclustered unclustered_cellspecific internalClusters_individualHMRs internalClusters_individualHMRs_cellspecific
+do
+	mkdir Adrenal\_${partition}
+	/data/hodges_lab/bin/HOMERv4.10_5-16-2018/bin/findMotifsGenome.pl ${HMRDir}Adrenal\_${partition}.txt hg19 ${outDir}Adrenal\_${partition}
+done
+
+# Bcell 
+for partition in unclustered unclustered_cellspecific internalClusters_individualHMRs internalClusters_individualHMRs_cellspecific
+do
+	mkdir Bcell\_${partition}
+	/data/hodges_lab/bin/HOMERv4.10_5-16-2018/bin/findMotifsGenome.pl ${HMRDir}Bcell\_${partition}.txt hg19 ${outDir}Bcell\_${partition}
+done
+
+
+# fHeart
+for partition in unclustered unclustered_cellspecific internalClusters_individualHMRs internalClusters_individualHMRs_cellspecific
+do
+	mkdir fHeart\_${partition}
+	/data/hodges_lab/bin/HOMERv4.10_5-16-2018/bin/findMotifsGenome.pl ${HMRDir}fHeart\_${partition}.txt hg19 ${outDir}fHeart\_${partition}
+done
+
+# fSpinal
+for partition in unclustered unclustered_cellspecific internalClusters_individualHMRs internalClusters_individualHMRs_cellspecific
+do
+	mkdir fSpinal\_${partition}
+	/data/hodges_lab/bin/HOMERv4.10_5-16-2018/bin/findMotifsGenome.pl ${HMRDir}fSpinal\_${partition}.txt hg19 ${outDir}fSpinal\_${partition}
+done
+
+# H1ESC
+for partition in unclustered unclustered_cellspecific internalClusters_individualHMRs internalClusters_individualHMRs_cellspecific
+do
+	mkdir H1ESC\_${partition}
+	/data/hodges_lab/bin/HOMERv4.10_5-16-2018/bin/findMotifsGenome.pl ${HMRDir}H1ESC\_${partition}.txt hg19 ${outDir}H1ESC\_${partition}
+done
+
+# Liver
+for partition in unclustered unclustered_cellspecific internalClusters_individualHMRs internalClusters_individualHMRs_cellspecific
+do
+	mkdir Liver\_${partition}
+	/data/hodges_lab/bin/HOMERv4.10_5-16-2018/bin/findMotifsGenome.pl ${HMRDir}Liver\_${partition}.txt hg19 ${outDir}Liver\_${partition}
+done
+
